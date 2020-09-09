@@ -17,7 +17,7 @@ def make_brand(**kwargs):
         className="brand",
         children=dcc.Link(
             href=get_url(""),
-            children=html.H1([fa("far fa-chart-bar"), server.config["TITLE"]]),
+            children=html.H1([server.config["TITLE"]]),
         ),
         **kwargs,
     )
@@ -45,6 +45,7 @@ def make_sidebar(**kwargs):
     return html.Nav(
         id=f"sidebar",
         className="nav navbar-dark bg-dark flex-column align-items-start",
-        children=[make_brand(), html.Div(id=server.config["NAVBAR_CONTAINER_ID"])],
+        children=[make_brand(), html.Div(
+            id=server.config["NAVBAR_CONTAINER_ID"])],
         **kwargs,
     )
